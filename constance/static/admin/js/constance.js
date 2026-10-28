@@ -28,12 +28,8 @@
                     return String(v);
                 });
 
-                // CheckboxSelectMultiple: individual checkboxes inside wrapper or matching id prefix
-                let checkboxes = field.find('input[type="checkbox"]');
-                if (checkboxes.length === 0) {
-                    checkboxes = $('input[type="checkbox"][id^="' + rawFieldId.replace(/ /g, "\\ ") + '_"]');
-                }
-                checkboxes.each(function() {
+                // CheckboxSelectMultiple: individual checkboxes inside a wrapper
+                field.find('input[type="checkbox"]').each(function() {
                     $(this).prop('checked', stringDefaults.indexOf($(this).val()) !== -1).trigger('change');
                 });
 

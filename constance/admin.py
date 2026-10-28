@@ -87,7 +87,7 @@ class ConstanceAdmin(admin.ModelAdmin):
 
         if config_value["is_multi_select"]:
             raw_def = config_value["raw_default"]
-            if isinstance(raw_def, (list, tuple, set)):
+            if isinstance(raw_def, list | tuple | set):
                 default_list = list(raw_def)
             elif raw_def is None:
                 default_list = []
